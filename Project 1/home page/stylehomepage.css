@@ -7,7 +7,7 @@
     .svgIconStyle6{fill:#444445;stroke:#444445;stroke-linecap:round;stroke-linejoin:round;stroke-width:0}
     @font-face{font-family:Oxygen;font-style:normal;font-weight:400;src:url(https://www.myfooddata.com/css/Oxygen/Oxygen-Regular.woff2) format("woff2"),url(https://www.myfooddata.com/css/Oxygen/Oxygen-Regular.woff) format("woff"),url(https://www.myfooddata.com/css/Oxygen/Oxygen-Regular.ttf) format("ttf");font-display:swap}
     html{min-height:-moz-available;min-height:-webkit-fill-available;min-height:fill-available}
-    body{margin:0 auto;clear:both;font-size:100%;font-family:Oxygen,Arial,Helvetica,sans-serif,Verdana;line-height:1.7;height:100vh;min-height:-moz-available;min-height:-webkit-fill-available;min-height:fill-available;text-align:center;color:#444445}
+    body{margin:0 auto;background-color: #562B00;color: #4B9600; clear:both;font-size:100%;font-family:Oxygen,Arial,Helvetica,sans-serif,Verdana;line-height:1.7;height:100vh;min-height:-moz-available;min-height:-webkit-fill-available;min-height:fill-available;text-align:center;color:#444445}
     @media (min-width:600px){body body{line-height:28px}}
     *{box-sizing:border-box}
     #wrap{text-align:left;width:100%}
@@ -239,7 +239,7 @@
     .clearSplashButton{align-items:center;background-color:#fff;border:none;border-radius:10px;color:#205493;cursor:pointer;display:flex;justify-content:center}
     .clearSplashButton.signUpButton{margin-block-end:30px}
     .splashFooter .clearSplashButton{margin:0}
-    .splashButtons{align-items:center;background-color:#205493;border:none;border-radius:10px;color:#fff!important;cursor:pointer;display:flex;justify-content:center}
+    .splashButtons{align-items:center;background-color: green;border:none;border-radius:10px;color:#fff!important;cursor:pointer;display:flex;justify-content:center}
     .splashButtons.signUpButton{margin-block-end:30px}
     .splashFooter .splashButtons{margin:0}
     .splashButtons:hover{background-color:#255fa7}
@@ -328,4 +328,43 @@
     .faqTitle{font-size:24px;color:#444445;font-weight:700;margin-top:10px;margin-bottom:10px}
     .faqlg{font-size:18px;color:#444445;line-height:1.6;margin-bottom:20px}
     .centerButton{display:flex;flex-direction:column;align-items:center}
+    .green-text{
+        color: #4B9600;
+    }
 
+    .haveanaccount, .dropDown, .nav-sign-in {
+       color : #4B9600;
+    }
+
+    #HomepageHeroTopButton, #nav-sign-up {
+        background-color: #4B9600;
+    }
+
+    #homePageHeaderText, #homePageSubtext, #i5, #i6, #i7, #main-nav, #HomepageHeroTopButton, #NutritionFactsShowcaseLink, #recipenutritioncalculator, #showcaseLinks, #dailyfoodlog
+    , #nutritionfacts, #WhatPeopleAre{
+        color: #4B9600 ;
+    }
+
+    body{
+        background-color: #562B00;
+    }
+
+    .green-bg-for-testimonial{
+        background-color: #4B9600;
+        border-radius: 20px;
+        color: white;
+        padding: 15px;
+    }
+    
+    .splashButtons{
+        background-color: #4B9600;
+    }
+
+    .faqWrap
+    {
+        background-color:#f9f9f9;border-left:5px solid #4B9600;
+    }
+
+    footer{
+        background-color: #4B9600;
+    }
