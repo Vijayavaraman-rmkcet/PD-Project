@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>EATSMART</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=2.0 user-scalable=2">
+    
+    <link rel="stylesheet" href="stylehomepage.css">
+  </head>
+  <body>
+    <!-- top section -->
+    <div id="logoAndNavWrap">
+      <div id="nav-modal">
+        <nav class="logoAndNav">
+
+          <!-- Middle: Navigation Links (Dropdowns) -->
+          <div id="navSections">
+            <!-- Mobile navigation show/hide -->
+            <div id="nshow" class="mobilenavshow">
+              <span class="navclose" onclick="hidenav()">&times;</span>
+              <!-- Main Navigation Links -->
+              <ul id="main-nav" class="mobilenav">
+                <li class="dropDown" onclick="navshowhide('toolsDropDown','i5','dnone','nav-dropdown')">Tools
+                  <i id="i5" class="navarrow down"></i>
+                </li>
+                <li class="dropDown" onclick="navshowhide('articlesDropDown','i6','dnone','nav-dropdown')">Articles
+                  <i id="i6" class="navarrow down"></i>
+                </li>
+                <li class="dropDown" onclick="navshowhide('aboutDropDown','i7','dnone','nav-dropdown')">About
+                  <i id="i7" class="navarrow down"></i>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Hidden dropdown menus for each main link (empty placeholders for now) -->
+            <div id="toolsDropDown" class="dnone"></div>
+            <div id="articlesDropDown" class="dnone"></div>
+            <div id="aboutDropDown" class="dnone"></div>
+          </div>
+
+          <!-- Right Side: Account Buttons and Search -->
+          <div id="nav-right">
+            <!-- Account Buttons -->
+            <div id="accountButtons">
+              <a class="nav-sign-in" href="log1.html" title="Sign in to your account">Sign In</a>
+              <a id="nav-sign-up" class="nav-sign-up" href="create-account.html" title="Sign up for a free account">Sign Up</a>
+            </div>
+
+            <!-- Search Form -->
+            <input type="text" name="search" placeholder="Search..." autocomplete="off" class="search-input">
+          </div>
+          
+        </nav>
+      </div>
+    </div>
+    <!-- end of the top section -->
+
+    <header>
+      <div class="inner-header-wrapper">
+        <div class="inner-header">
+          <div id="mainSplashWrap" class="planyourmeals">
+            <span id="homePageHeaderText" class="homepageHeader">
+              Understand what you eat.
+            </span>
+            <p id="homePageSubtext" class="subHeaderText">
+              Learn about your diet.
+            </p>
+            <a href="create-account.html" title="Sign Up Page">
+              <button id="HomepageHeroTopButton" class="splashButtons signUpButton">Get Started Now</button>
+            </a>
+            <span class="haveanaccount"> Already have an account?
+              <a href="sign-in.html" title="Log in to your account" class="login">Login</a>
+            </span>
+          </div>
+          <div class="imgwrapper">
+            <img class="splashimg" src="./images/creative/splash.png" width="864px" height="927px" alt="Images of fruits and vegetables in a grocery bag" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="showcaseWrap">
+      <div class="cardWrapImageLeft">
+        <div class="featureImage">
+          <a href="nutrition-facts.html" title="Search for nutrition facts">
+            <img loading="lazy" class="featureImagePic" src="istockphoto-1302437997-612x612.jpg" width="311px" height="632px" alt="Recipe Nutrition Calculator"/>
+          </a>
+        </div>
+        <div class="showcaseText">
+          <div class="featureTitle"><a href="nutrition-facts.html" title="Nutrition Facts">Get Detailed Nutrition Data</a></div>
+          <div id="showcaseLinks" class="showcaseLinks">
+            <a id="NutritionFactsShowcaseLink" href="nutrition-facts.html" title="Nutrition Facts">Search Nutrition Facts &#9658;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcaseWrap">
+      <div class="cardWrapImageRight">
+        <div class="featureImage">
+          <a href="recipe-nutrition-calculator.html" title="Build and optimize recipes with the nutrition calculator">
+            <img loading="lazy" class="featureImagePic" src="istockphoto-140045987-612x612.jpg" width="311px" height="632px" alt="Nutrition Comparison Tool"></a>
+        </div>
+        <div class="showcaseText">
+          <div class="featureTitle"><a href="recipe-nutrition-calculator.html" title="Recipe Nutrition Calculator">
+            Create Healthier Recipes
+          </a></div>
+          <div id="showcaseLinks" class="showcaseLinks">
+            <a href="recipe-nutrition-calculator.html" title="Recipe Nutrition Calculator">Recipe Nutrition Calculator &#9658;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="showcaseWrap" class="showcaseWrap">
+      <div class="cardWrapImageLeft">
+        <div class="featureImage">
+          <a href="daily-food-log.html" title="Daily Food Log" data-image-background="./images/creative/meal-planner-splash-2.jpg">
+            <img loading="lazy" class="featureImagePic" src="istockphoto-175487148-612x612.jpg" width="311px" height="632px" alt="Screen Shot of Trends" title="Preview of Meal Planner">
+          </a>
+        </div>
+        <div class="showcaseText">
+          <div class="featureTitle"><a href="daily-food-log.html" title="Daily Food Log">
+            Track Your Daily Progress to See Trends Over Time
+          </a></div>
+          <div id="showcaseLinks" class="showcaseLinks">
+            <a href="daily-food-log.html" title="Daily Food Log">Log Your Foods &#9658;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="faq" class="centerTextWrap"></div> 
+
+    <div class="centerTextWrap">
+      <div class="featureTitle">What People Are Saying</div>
+      <div class="testimonial-quote">
+        <div class="quote-container">
+          <blockquote>
+            <p>"I just had my cholesterol checked and after just 3 months it's all in the normal range now. I couldn't have done it without your tools!”</p>
+          </blockquote>  
+          <cite><span>Kathy M.</span></cite>
+        </div> 
+        <div class="quote-container">
+          <blockquote>
+            <p>"Your app is incredible!!! I'm so glad I found it.  I am getting educated on what's in my food.”</p>
+          </blockquote>  
+          <cite><span>Susan G.</span></cite>
+        </div> 
+        <div class="quote-container">
+          <blockquote>
+            <p>"Your website is an excellent resource for anyone looking to understand nutrition, track the foods they consume and improve the health of their body."</p>
+          </blockquote>  
+          <cite><span>Teal R.</span></cite>
+        </div>
+      </div>  
+    </div> 
+
+    <div class="centerTextWrap">
+      <a href="create-account.html" title="Sign Up Page">
+        <button class="splashButtons signUpButton">Get Started Now</button>
+      </a>
+    </div> 
+
+    <div class="centerTextWrap">
+      <div class="faqWrap">
+        <span class="faqTitle">Do you have an app?</span>
+        <p class="faqlg">Currently we offer a progressive web app.</p>
+
+        <span class="faqTitle">Why should I give you my email address?</span>
+        <p class="faqlg">We only send email reminders to log foods and a couple welcome emails. You can unsubscribe at any time.</p>
+
+        <span class="faqTitle">You say it is free, are there going to be hidden charges later?</span>
+        <p class="faqlg">It is free to use and supported by ads. Optional ad removal is available for $5/month or $50/year.</p>
+      </div> 
+    </div>
+
+    <div id="footerBackGround">
+      <img loading="lazy" src="istockphoto-1256709789-612x612.jpg" alt="A bowl of strawberries" width="1500px" height="300px">
+    </div>
+
+    <div class="splashFooter">        
+      <div class="footerHeaderText">Create your free account and start a better diet</div>
+      <a href="create-account.html" title="Sign Up Page">
+        <button class="splashButtons signUpButton">Sign up for free</button>
+      </a>
+    </div>
+
+    <footer> 
+      <div class="footerBlock">
+        <a href="home.html" title="Home Page">Home</a>
+        <a href="pricing.html" title="Pricing Page">Pricing</a>
+        <a href="about.html" title="About">About</a>
+        <a href="editorial-policy.html" title="Editorial Policy">Editorial Policy</a>
+        <a href="data-sources.html" title="Data Sources">Data Sources</a>
+        <a href="testimonials.html" title="Testimonials">Testimonials</a>
+        <a href="create-account.html" title="Sign Up">Sign Up</a>
+        <a href="tools.html" title="Tools">Tools</a>
+        <a href="articles.html" title="Articles">Articles</a>
+        <a href="contact.html" title="Contact Us">Contact</a>
+        <a href="terms.html" title="Terms of Use">Terms of Use</a>
+        <a href="privacy.html" title="Privacy Policy">Privacy</a>
+        <a href="faq.html" title="Frequently Asked Questions">FAQ</a>
+        <a href="instructions.html" title="Instructions">Instructions</a>
+        <a href="search.html" title="Search">Search</a>
+        <a href="sitemap.html" title="Sitemap">Sitemap</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
