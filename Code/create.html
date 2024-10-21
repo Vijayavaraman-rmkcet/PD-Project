@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Information</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e6edf7; /* Soft blue background */
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 50px;
+    }
+    .search-bar {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      margin-right: 20px;
+    }
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+    .search-bar h3 {
+      font-size: 18px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .content {
+      width: 700px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      font-size: 22px;
+      margin-top: 0;
+      text-align: center;
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+    a {
+      text-decoration: none;
+      color: #2196F3;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Accordion section */
+    .accordion {
+      margin-top: 30px;
+    }
+    .accordion button {
+      background-color: #f1f1f1;
+      color: #444;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .accordion button.active, .accordion button:hover {
+      background-color: #ccc;
+    }
+    .accordion .panel {
+      padding: 0 15px;
+      background-color: white;
+      display: none;
+      overflow: hidden;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" placeholder="Search for a food">
+      <h3>Start Here</h3>
+      <p>Search for a food to see the nutrition facts.</p>
+    </div>
+
+    <div class="content">
+      <h2>Find detailed nutrition information for over 600,000 foods.</h2>
+      <h3>Popular Searches</h3>
+      <ul>
+        <li><a href="https://www.google.com/search?q=banana+nutrition">Bananas</a></li>
+        <li><a href="https://www.google.com/search?q=hard+boiled+egg+nutrition">Hard Boiled Eggs</a></li>
+        <li><a href="https://www.google.com/search?q=apple+nutrition">Apples</a></li>
+        <li><a href="https://www.google.com/search?q=white+rice+nutrition">White Rice</a></li>
+        <li><a href="https://www.google.com/search?q=chicken+breast+nutrition">Chicken Breast</a></li>
+        <li><a href="https://www.google.com/search?q=salmon+nutrition">Salmon</a></li>
+        <li><a href="https://www.google.com/search?q=avocado+nutrition">Avocados</a></li>
+        <li><a href="https://www.google.com/search?q=broccoli+nutrition">Broccoli</a></li>
+        <li><a href="https://www.google.com/search?q=carrot+nutrition">Carrots</a></li>
+        <li><a href="https://www.google.com/search?q=spinach+nutrition">Spinach</a></li>
+      </ul>
+
+      <!-- Accordion for instructions -->
+      <div class="accordion">
+        <button class="accordion-btn">How do I find data for a new food?</button>
+        <div class="panel">
+          <p>Search for the food in the search bar above.</p>
+        </div>
+
+        <button class="accordion-btn">How do I change a serving size?</button>
+        <div class="panel">
+          <p>Click on the serving size and input a new value.</p>
+        </div>
+
+        <button class="accordion-btn">How can I change the quantity of a food?</button>
+        <div class="panel">
+          <p>Select the quantity input and adjust as needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for accordion behavior
+    const accordionButtons = document.querySelectorAll('.accordion-btn');
+    accordionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const panel = this.nextElementSibling;
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
