@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Nutrition Comparison</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("foodcomparepic.jpg");
+            background-repeat: no-repeat;
+            background: 100%;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .input-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        table {
+            width: 80%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+        td {
+            background-color: #fff;
+        }
+        .comparison-table {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Compare Food Nutrition</h1>
+
+<!-- Product selection section -->
+<div class="input-section">
+    <select id="product1">
+        <option value="" disabled selected>Select First Product</option>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="bread">Bread</option>
+        <option value="milk">Milk</option>
+        <option value="egg">Egg</option>
+    </select>
+
+    <select id="product2">
+        <option value="" disabled selected>Select Second Product</option>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="bread">Bread</option>
+        <option value="milk">Milk</option>
+        <option value="egg">Egg</option>
+    </select>
+</div>
+
+<!-- Comparison Table -->
+<div class="comparison-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Nutrient</th>
+                <th id="food1-name"></th>
+                <th id="food2-name"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Calories</td>
+                <td id="calories1"></td>
+                <td id="calories2"></td>
+            </tr>
+            <tr>
+                <td>Total Fat</td>
+                <td id="fat1"></td>
+                <td id="fat2"></td>
+            </tr>
+            <tr>
+                <td>Cholesterol</td>
+                <td id="cholesterol1"></td>
+                <td id="cholesterol2"></td>
+            </tr>
+            <tr>
+                <td>Sodium</td>
+                <td id="sodium1"></td>
+                <td id="sodium2"></td>
+            </tr>
+            <tr>
+                <td>Total Carbohydrates</td>
+                <td id="carbs1"></td>
+                <td id="carbs2"></td>
+            </tr>
+            <tr>
+                <td>Protein</td>
+                <td id="protein1"></td>
+                <td id="protein2"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Nutritional data for different products
+    const products = {
+        apple: {
+            name: "Apple",
+            calories: 95,
+            fat: "0.3g",
+            cholesterol: "0mg",
+            sodium: "1mg",
+            carbs: "25g",
+            protein: "0.5g"
+        },
+        banana: {
+            name: "Banana",
+            calories: 105,
+            fat: "0.3g",
+            cholesterol: "0mg",
+            sodium: "1mg",
+            carbs: "27g",
+            protein: "1.3g"
+        },
+        bread: {
+            name: "Bread",
+            calories: 79,
+            fat: "1g",
+            cholesterol: "0mg",
+            sodium: "144mg",
+            carbs: "15g",
+            protein: "3g"
+        },
+        milk: {
+            name: "Milk",
+            calories: 122,
+            fat: "4.8g",
+            cholesterol: "20mg",
+            sodium: "100mg",
+            carbs: "12g",
+            protein: "8g"
+        },
+        egg: {
+            name: "Egg",
+            calories: 78,
+            fat: "5g",
+            cholesterol: "186mg",
+            sodium: "62mg",
+            carbs: "1g",
+            protein: "6g"
+        }
+    };
+
+    // Function to update table and show comparison
+    function updateComparison() {
+        const product1 = document.getElementById("product1").value;
+        const product2 = document.getElementById("product2").value;
+
+        if (product1 && product2) {
+            const food1 = products[product1];
+            const food2 = products[product2];
+
+            // Update product names in table
+            document.getElementById("food1-name").textContent = food1.name;
+            document.getElementById("food2-name").textContent = food2.name;
+
+            // Update nutritional values in table
+            document.getElementById("calories1").textContent = food1.calories;
+            document.getElementById("calories2").textContent = food2.calories;
+
+            document.getElementById("fat1").textContent = food1.fat;
+            document.getElementById("fat2").textContent = food2.fat;
+
+            document.getElementById("cholesterol1").textContent = food1.cholesterol;
+            document.getElementById("cholesterol2").textContent = food2.cholesterol;
+
+            document.getElementById("sodium1").textContent = food1.sodium;
+            document.getElementById("sodium2").textContent = food2.sodium;
+
+            document.getElementById("carbs1").textContent = food1.carbs;
+            document.getElementById("carbs2").textContent = food2.carbs;
+
+            document.getElementById("protein1").textContent = food1.protein;
+            document.getElementById("protein2").textContent = food2.protein;
+
+            // Show the comparison table
+            document.querySelector(".comparison-table").style.display = "block";
+        }
+    }
+
+    // Event listeners for product selection
+    document.getElementById("product1").addEventListener("change", updateComparison);
+    document.getElementById("product2").addEventListener("change", updateComparison);
+</script>
+
+</body>
+</html>
