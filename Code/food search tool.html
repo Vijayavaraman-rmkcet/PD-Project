@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Information</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e6edf7;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      
+      color:black;
+      text-decoration-color: #2196F3;
+      
+    }
+    .hearder-center{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-right: 25px;
+        color:#2196F3 ;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      height: 70px;
+      margin-right: 20px;
+    }
+
+    .header-left nav a {
+      color: #2196F3;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header-left nav a:hover {
+      text-decoration: underline;
+    }
+
+    .header-right a {
+      
+      padding: 10px;
+      color: #2196F3;
+      text-decoration: none;
+    }
+
+    .header-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 300px;
+      padding: 50px;
+    }
+    .text-heading1{
+        margin-top: -9px;
+    }
+    .search-bar {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 300px;
+      margin-right: 50px;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 90%;
+      border: 1px solid #ddddddc8;
+      border-radius: 18px;
+      font-size: 17px;
+      outline: none;
+    }
+
+    .search-bar button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 60%;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .scanpic{
+        width: 60px;
+        height: 60px;
+        margin-left: 36%;
+    }
+    .search-bar button:hover {
+      background-color: #1976D2;
+    }
+
+    .scan-btn {
+      margin-top: 10px;
+      padding: 12px;
+      width: 80%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .scan-btn:hover {
+      background-color: #388E3C;
+      transform: scale(1.05);
+    }
+
+    /* Animation for the scan button */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .scan-btn:active {
+      animation: pulse 0.5s;
+    }
+
+    .content {
+      width: 700px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2196F3;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .food-info-box {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-left">
+      <!-- Replace with your logo -->
+      <img src="logo_final.png" alt="Logo">
+      <nav>
+        <a href="#tools">Tools</a>
+        <a href="#articles">Articles</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+    <div class="hearder-center">
+        <h3>ＥＡＴＳＭＡＲＴ</h3>
+    </div>
+    <div class="header-right">
+      <a href="#signin">Sign In</a>
+      <a href="#signup">Sign Up</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="search-bar">
+        <h3 class="text-heading1">𝘴𝘦𝘢𝘳𝘤𝘩 𝘧𝘰𝘳 𝘢 𝘧𝘰𝘰𝘥 𝘵𝘰 𝘴𝘦𝘦 𝘵𝘩𝘦 𝘯𝘶𝘵𝘳𝘪𝘵𝘪𝘰𝘯 𝘧𝘢𝘤𝘵𝘴</h3>
+      <input type="text" id="food-search" placeholder="Search for a food">
+      <button id="search-btn">Search Nutrition Info</button>
+      <h3 class="text-heading2">𝘚𝘤𝘢𝘯 𝘵𝘩𝘦 𝘣𝘢𝘳𝘤𝘰𝘥𝘦 𝘵𝘰 𝘨𝘦𝘵 𝘵𝘩𝘦 𝘯𝘶𝘵𝘳𝘪𝘵𝘪𝘰𝘯𝘢𝘭 𝘧𝘢𝘤𝘵𝘴 𝘰𝘧 𝘵𝘩𝘦 𝘧𝘰𝘰𝘥</h3>
+      <img src="scan pic.png" alt="scanpic" class="scanpic">
+        <h5 style="margin-top:-37px;">Scan or Upload</h5>
+      <!-- Image Upload for Barcode -->
+      <input type="file" id="barcode-img" accept="image/*" style="margin-top: 12px;margin-left:50px">
+      <button class="scan-btn" id="scan-barcode-btn">Scan Barcode</button>
+    </div>
+
+    <div class="content">
+      <h2>Find detailed nutrition information for over 600,000 foods.</h2>
+      <h3>Popular Searches</h3>
+      <ul id="food-list">
+        <li><a target="_blank" href="https://www.google.com/search?q=banana+nutrition">Bananas</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=hard+boiled+egg+nutrition">Hard Boiled Eggs</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=apple+nutrition">Apples</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=white+rice+nutrition">White Rice</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=chicken+breast+nutrition">Chicken Breast</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=salmon+nutrition">Salmon</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=avocado+nutrition">Avocados</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=broccoli+nutrition">Broccoli</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=carrot+nutrition">Carrots</a></li>
+        <li><a target="_blank" href="https://www.google.com/search?q=spinach+nutrition">Spinach</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for search functionality
+    const searchBtn = document.getElementById('search-btn');
+    searchBtn.addEventListener('click', function() {
+      const searchQuery = document.getElementById('food-search').value;
+      if (searchQuery.trim()) {
+        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}+nutrition`;
+        window.open(googleSearchUrl, '_blank');
+      }
+    });
+
+    // Handle barcode image upload and scanning
+    const scanBtn = document.getElementById('scan-barcode-btn');
+    const barcodeImgInput = document.getElementById('barcode-img');
+
+    scanBtn.addEventListener('click', function() {
+      const file = barcodeImgInput.files[0];
+      if (file) {
+        // Simulating barcode scanning
+        alert('Scanning barcode...');
+        // Use a barcode scanning API (e.g., ZXing) to decode the barcode here
+        // Redirect to a relevant food nutrition page based on barcode
+        // For demo, redirect to a placeholder page
+        window.open('http://127.0.0.1:5500/PD-Project/Code/food%20list.html' + encodeURIComponent(file.name), '_blank');
+      } else {
+        alert('Please upload a barcode image.');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+ 
+
+
+
+
