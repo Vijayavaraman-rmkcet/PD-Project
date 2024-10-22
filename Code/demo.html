@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutrition Information</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e6edf7;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Styles */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      border-bottom: 3px solid #2196F3;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      height: 70px;
+      margin-right: 20px;
+    }
+
+    .header-left nav a {
+      color: #2196F3;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      padding: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .header-left nav a:hover {
+      text-decoration: underline;
+      color: #1976D2;
+    }
+
+    .hearder-center h3 {
+      color: #2196F3;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    /* Dropdown for Tools */
+    .header-left nav .dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .header-left nav .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border: 1px solid #2196F3;
+      border-radius: 5px;
+    }
+
+    .header-left nav .dropdown-content a {
+      color: #2196F3;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .header-left nav .dropdown-content a:hover {
+      background-color: #e6edf7;
+      color: #1976D2;
+    }
+
+    .header-left nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Header Right - Sign In and Sign Up */
+    .header-right a {
+      padding: 10px 20px;
+      margin-left: 10px;
+      color: white;
+      background-color: #2196F3;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, background-color 0.3s ease;
+    }
+
+    .header-right a:hover {
+      background-color: #1976D2;
+      transform: scale(1.05);
+    }
+
+    /* Main Container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px;
+    }
+
+    .text-heading1 {
+      margin-top: -9px;
+    }
+
+    .search-bar {
+      background-color: white;
+      border: 2px solid #2196F3;
+      border-radius: 10px;
+      padding: 30px;
+      width: 300px;
+      margin-right: 50px;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 90%;
+      border: 1px solid #dddddd;
+      border-radius: 18px;
+      font-size: 17px;
+      outline: none;
+    }
+
+    .search-bar button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 60%;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      background-color: #1976D2;
+    }
+
+    .scanpic {
+      width: 60px;
+      height: 60px;
+      margin-left: 36%;
+    }
+
+    .scan-btn {
+      margin-top: 10px;
+      padding: 12px;
+      width: 80%;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .scan-btn:hover {
+      background-color: #388E3C;
+    }
+
+    /* Animation for scan button */
+    .scan-btn:active {
+      animation: pulse 0.5s;
+    }
+
+    .content {
+      width: 700px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #2196F3;
+      margin-left: 37%;
+      margin-top: -18%;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2196F3;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    a:hover {
+      color: #1976D2;
+      transform: scale(1.05);
+    }
+
+    /* Animation for popular food list */
+    #food-list li {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards;
+    }
+
+    #food-list li:nth-child(1) { animation-delay: 0.1s; }
+    #food-list li:nth-child(2) { animation-delay: 0.2s; }
+    #food-list li:nth-child(3) { animation-delay: 0.3s; }
+    #food-list li:nth-child(4) { animation-delay: 0.4s; }
+    #food-list li:nth-child(5) { animation-delay: 0.5s; }
+    #food-list li:nth-child(6) { animation-delay: 0.6s; }
+    #food-list li:nth-child(7) { animation-delay: 0.7s; }
+    #food-list li:nth-child(8) { animation-delay: 0.8s; }
+    #food-list li:nth-child(9) { animation-delay: 0.9s; }
+    #food-list li:nth-child(10) { animation-delay: 1.0s; }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .Info {
+      width: 700px;
+      background-color: white;
+      padding: 8px;
+      border-radius: 10px;
+      border: 2px solid #2196F3;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #2196F3;
+      color: white;
+      padding: 20px;
+      margin-top: 50%;
+      text-align: center;
+    }
+
+    footer .social-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    footer .social-links a:hover {
+      color: #FFD700;
+    }
+
+    footer .footer-btns a {
+      background-color: #1976D2;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    footer .footer-btns a:hover {
+      background-color: #1E88E5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-left">
+      <img src="logo_final.png" alt="Logo">
+      <nav>
+        <div class="dropdown">
+          <a href="#">Tools</a>
+          <div class="dropdown-content">
+            <a href="compare food.html">Comparison Tool</a>
+            <a href="food search tool.html">Search Food Tool</a>
+            <a href="#calculator">Recipe Nutrition Calculator</a>
+            <a href="#scanner">Barcode Scanner</a>
+          </div>
+        </div>
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="container">
+    <div class="search-bar">
+      <h3>Popular Foods</h3>
+      <ul id="food-list">
+        <li><a href="#">Apple</a></li>
+        <li><a href="#">Banana</a></li>
+        <li><a href="#">Carrot</a></li>
+        <li><a href="#">Chicken Breast</a></li>
+        <li><a href="#">Egg</a></li>
+        <li><a href="#">Lettuce</a></li>
+        <li><a href="#">Milk</a></li>
+        <li><a href="#">Oats</a></li>
+        <li><a href="#">Salmon</a></li>
+        <li><a href="#">Tomato</a></li>
+      </ul>
+      <img class="scanpic" src="qr-code.png" alt="scan pic">
+      <button class="scan-btn">Scan Food Barcode</button>
+    </div>
+    <div class="content">
+      <h2>Nutrition Info</h2>
+      <p>Check nutritional values and explore healthier food options!</p>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+    <div class="footer-btns">
+      <a href="#">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
