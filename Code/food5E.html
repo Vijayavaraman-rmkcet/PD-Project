@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .nutrition-facts {
+            background-color: white;
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+        .nutrition-facts h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        .fact-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .serving-input {
+            width: 60px;
+            margin: 10px 0;
+        }
+        .calories {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .input-label {
+            font-size: 14px;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Detailed Nutrition Facts */
+        .detailed-facts {
+            margin-top: 20px;
+        }
+        .detailed-facts h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .detailed-facts .fact-item {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nutrition-facts">
+    <h1>BOILED EGG</h1>
+    <img src="https://th.bing.com/th?id=OIP.L1JdwQZgvIZRgNFH7GoyaAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="White Bread" style="width:100%; height: 300px; margin-bottom: 10px;">
+    <!-- Servings input and update button at the top -->
+    <div class="top-controls">
+        <label class="input-label" for="serving">Servings:</label>
+        <input class="serving-input" type="number" id="serving" value="1" min="1">
+        <button onclick="updateValues()">Update</button>
+    </div>
+
+    <!-- Main Nutrition Facts -->
+    <div class="fact-item">
+        <span>Calories:</span>
+        <span class="calories" id="calories">2</span>
+    </div>
+    <div class="fact-item">
+        <span>Total Fat:</span>
+        <span id="fat">0.11g</span>
+    </div>
+    <div class="fact-item">
+        <span>Cholesterol:</span>
+        <span id="cholesterol">3.7mg</span>
+    </div>
+    <div class="fact-item">
+        <span>Sodium:</span>
+        <span id="sodium">1.2mg</span>
+    </div>
+    <div class="fact-item">
+        <span>Total Carbohydrate:</span>
+        <span id="carbs">0.01g</span>
+    </div>
+    <div class="fact-item">
+        <span>Protein:</span>
+        <span id="protein">0.13g</span>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="chart-container">
+        <canvas id="nutritionChart" width="250" height="250"></canvas>
+    </div>
+
+    <!-- Detailed Nutrition Facts -->
+    <div class="detailed-facts">
+        <h3>Detailed Nutrition Facts</h3>
+        <div class="fact-item">Vitamin A: <span id="vitamin-a">0%</span></div>
+        <div class="fact-item">Vitamin C: <span id="vitamin-c">0%</span></div>
+        <div class="fact-item">Calcium: <span id="calcium">0%</span></div>
+        <div class="fact-item">Iron: <span id="iron">0%</span></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Base nutritional values for one serving
+    const baseValues = {
+        calories: 2,
+        fat: 0.11,
+        cholesterol: 3.7,
+        sodium: 1.2,
+        carbs: 0.01,
+        protein: 0.13,
+        vitaminA: 0, // Percentage
+        vitaminC: 0,  // Percentage
+        calcium: 0,  // Percentage
+        iron: 0      // Percentage
+    };
+
+    // Create pie chart with Chart.js
+    const ctx = document.getElementById('nutritionChart').getContext('2d');
+    let nutritionChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Calories', 'Total Fat', 'Cholesterol', 'Sodium', 'Carbohydrates', 'Protein'],
+            datasets: [{
+                data: [baseValues.calories, baseValues.fat, baseValues.cholesterol, baseValues.sodium, baseValues.carbs, baseValues.protein],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF5722', '#9C27B0'],
+                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#FF5722', '#9C27B0']
+            }]
+        },
+        options: {
+            responsive: false
+        }
+    });
+
+    // Function to update the displayed values based on the servings
+    function updateValues() {
+        const servings = document.getElementById("serving").value;
+
+        // Update main nutritional facts
+        document.getElementById("calories").innerText = baseValues.calories * servings;
+        document.getElementById("fat").innerText = (baseValues.fat * servings) + "g";
+        document.getElementById("cholesterol").innerText = (baseValues.cholesterol * servings) + "mg";
+        document.getElementById("sodium").innerText = (baseValues.sodium * servings) + "mg";
+        document.getElementById("carbs").innerText = (baseValues.carbs * servings) + "g";
+        document.getElementById("protein").innerText = (baseValues.protein * servings) + "g";
+
+        // Update detailed nutrition facts
+        document.getElementById("vitamin-a").innerText = (baseValues.vitaminA * servings) + "%";
+        document.getElementById("vitamin-c").innerText = (baseValues.vitaminC * servings) + "%";
+        document.getElementById("calcium").innerText = (baseValues.calcium * servings) + "%";
+        document.getElementById("iron").innerText = (baseValues.iron * servings) + "%";
+
+        // Update the pie chart
+        nutritionChart.data.datasets[0].data = [
+            baseValues.calories * servings,
+            baseValues.fat * servings,
+            baseValues.cholesterol * servings,
+            baseValues.sodium * servings,
+            baseValues.carbs * servings,
+            baseValues.protein * servings
+        ];
+        nutritionChart.update();
+    }
+</script>
+
+</body>
+</html>
